@@ -9432,6 +9432,10 @@ void Plater::_calib_pa_pattern(const Calib_Params& params)
     printer_config.set_key_value("wipe", new ConfigOptionBools{false});
     printer_config.set_key_value("retract_when_changing_layer", new ConfigOptionBools{false});
 
+    // Cap number of slow layers at 1
+    if (print_config.option<ConfigOptionInt>("slow_down_layers")->value > 1)
+        print_config.set_key_value("slow_down_layers", new ConfigOptionInt(1));
+
     //Orca: find acceleration to use in the test
     auto accel = print_config.option<ConfigOptionFloat>("outer_wall_acceleration")->value; // get the outer wall acceleration
     if (accel == 0) // if outer wall accel isnt defined, fall back to inner wall accel
