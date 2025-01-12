@@ -25,7 +25,7 @@ endif ()
 orcaslicer_add_cmake_project(
     wxWidgets
     GIT_REPOSITORY "https://github.com/buzzhuzz/Orca-deps-wxWidgets.git"
-    GIT_TAG "updates/v3.2.6"
+    GIT_TAG "updates/upstream-latest"
     GIT_SHALLOW ON
     DEPENDS ${PNG_PKG} ${ZLIB_PKG} ${EXPAT_PKG} ${TIFF_PKG} ${JPEG_PKG}
     CMAKE_ARGS
