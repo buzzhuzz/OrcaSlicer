@@ -429,6 +429,7 @@ void create_combochecklist(wxComboCtrl* comboCtrl, const std::string& text, cons
 	}
 }
 
+#if 0
 unsigned int combochecklist_get_flags(wxComboCtrl* comboCtrl)
 {
 	unsigned int flags = 0;
@@ -453,6 +454,7 @@ void combochecklist_set_flags(wxComboCtrl* comboCtrl, unsigned int flags)
 		}
 	}
 }
+#endif
 
 AppConfig* get_app_config()
 {

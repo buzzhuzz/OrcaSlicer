@@ -205,7 +205,7 @@ wxBoxSizer *PreferencesDialog::create_item_language_combobox(
         if (combobox->GetSelection() == m_current_language_selected)
             return;
 
-        if (e.GetString().mb_str() != app_config->get(param)) {
+        if (e.GetString().mb_str() != wxString(app_config->get(param))) {
             {
                 //check if the project has changed
                 if (wxGetApp().plater()->is_project_dirty()) {

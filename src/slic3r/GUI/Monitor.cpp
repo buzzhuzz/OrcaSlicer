@@ -159,8 +159,8 @@ MonitorPanel::~MonitorPanel()
 {
     m_refresh_timer = new wxTimer();
     m_refresh_timer->SetOwner(this);
+    m_refresh_timer->StartOnce(0);
     m_refresh_timer->Start(REFRESH_INTERVAL);
-    wxPostEvent(this, wxTimerEvent());
 
     Slic3r::DeviceManager* dev = Slic3r::GUI::wxGetApp().getDeviceManager();
     if (!dev) return;
@@ -441,8 +441,8 @@ bool MonitorPanel::Show(bool show)
 
         m_refresh_timer->Stop();
         m_refresh_timer->SetOwner(this);
+        m_refresh_timer->StartOnce(0);
         m_refresh_timer->Start(REFRESH_INTERVAL);
-        wxPostEvent(this, wxTimerEvent());
 
         if (dev) {
             //set a default machine when obj is null

@@ -362,7 +362,7 @@ void AuFile::on_input_enter(wxCommandEvent &evt)
     auto     new_fullname = new_file_name + m_file_path.extension().string();
 
     
-    wxString new_fullname_path = dir.wstring() + "/" + new_fullname;
+    wxString new_fullname_path = dir.wstring() + wxString("/") + wxString(new_fullname);
     fs::path new_dir_path(new_fullname_path.ToStdWstring());
     
 
@@ -949,7 +949,7 @@ void AuxiliaryPanel::on_import_file(wxCommandEvent &event)
             }
             
             if (!is_exist) {
-                dir_path += "/" + src_bfs_path.filename().generic_wstring();
+                dir_path += wxString("/") + src_bfs_path.filename().generic_wstring();
             } else {
                 time_t t1 = time(0);
                 char   ch1[64];
@@ -959,7 +959,7 @@ void AuxiliaryPanel::on_import_file(wxCommandEvent &event)
                 wxString name = src_bfs_path.filename().generic_wstring();
                 auto before_name = replaceSpace(name.ToStdString(), src_bfs_path.extension().string(), "");
                 time_text = replaceSpace(time_text, ":", "_");
-                dir_path += "/" + before_name + "_" + time_text + src_bfs_path.extension().wstring();
+                dir_path += wxString("/") + before_name + "_" + wxString(time_text) + src_bfs_path.extension().wstring();
             }
            
 

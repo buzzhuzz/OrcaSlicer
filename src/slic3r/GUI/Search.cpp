@@ -35,7 +35,7 @@ using GUI::into_u8;
 
 namespace Search {
 
-static char marker_by_type(Preset::Type type, PrinterTechnology pt)
+static wchar_t marker_by_type(Preset::Type type, PrinterTechnology pt)
 {
     switch (type) {
     case Preset::TYPE_PRINT:
