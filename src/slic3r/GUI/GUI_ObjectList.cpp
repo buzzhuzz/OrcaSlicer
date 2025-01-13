@@ -5754,11 +5754,14 @@ void ObjectList::on_plate_selected(int plate_index)
     wxDataViewItem item = m_objects_model->GetItemByPlateId(plate_index);
     wxDataViewItem sel = GetSelection();
 
+    fprintf(stderr, "%s( %i ) %x %x\n", __func__, plate_index,
+            item.m_pItem, sel.m_pItem);
+
     if (sel == item)
         return;
 
     UnselectAll();
-    Select(item);
+    //Select(item);
 }
 
 //BBS: notify partplate the instance added/updated
